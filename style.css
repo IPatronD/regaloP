@@ -1,0 +1,151 @@
+body {
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.envelope {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg);
+    transition: transform 1s ease-in-out;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff7e9d;
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+    transform-origin: top;
+    transition: transform 1s ease-in-out;
+    z-index: 2;
+}
+
+.letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: top 1s ease-in-out;
+    z-index: 1;
+}
+
+.letter h1 {
+    color: #ff5c8a;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.letter p {
+    color: #444444;
+    font-size: 1em;
+    margin: 8px 0;
+}
+
+.signature {
+    margin-top: 15px;
+    font-style: italic;
+    color: #ff5c8a;
+}
+
+button {
+    margin-top: 30px;
+    padding: 10px 25px;
+    background: #ff5c8a;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 5px 10px rgba(255, 92, 138, 0.3);
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ff7e9d;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .envelope {
+        width: 400px;
+        height: 300px;
+    }
+
+    .letter {
+        padding: 18px;
+    }
+
+    .letter h1 {
+        font-size: 1.2em;
+    }
+
+    .letter p {
+        font-size: 0.95em;
+        line-height: 1.4em;
+    }
+
+    button {
+        font-size: 0.95em;
+        padding: 9px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .envelope {
+        width: 90%;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .letter {
+        padding: 15px;
+    }
+
+    .letter h1 {
+        font-size: 1.1em;
+    }
+
+    .letter p {
+        font-size: 0.9em;
+    }
+
+    button {
+        margin-top: 20px;
+        font-size: 0.9em;
+        padding: 8px 18px;
+    }
+}
